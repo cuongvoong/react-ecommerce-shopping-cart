@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { fetchCategories } from "../../store/actions/productActions";
-import { updateFilters } from "../../store/actions/filterActions";
 import "./Filter.css";
 import FilterItem from "./FilterItem";
 
 class Filter extends Component {
   componentDidMount() {
     this.selectedFilters = new Set();
-    this.props.fetchCategories();
-    this.props.updateFilters(this.props.filters);
+    this.props.onUpdateFilters(this.props.filters);
   }
   render() {
     const filterItems = this.props.categories.map(c => {
@@ -17,7 +13,7 @@ class Filter extends Component {
         <FilterItem
           key={c.id}
           category={c}
-          handleCheckboxChange={this.handleCheckboxChange}
+          onCheckboxChange={this.handleCheckboxChange}
         />
       );
     });
@@ -38,17 +34,8 @@ class Filter extends Component {
       this.selectedFilters.delete(value);
     }
 
-    // console.log(this.selectedFilters);
-    this.props.updateFilters(Array.from(this.selectedFilters));
+    this.props.onUpdateFilters(Array.from(this.selectedFilters));
   };
 }
 
-const mapStateToProps = state => ({
-  categories: state.products.categories,
-  filters: state.filters.items
-});
-
-export default connect(
-  mapStateToProps,
-  { fetchCategories, updateFilters }
-)(Filter);
+export default Filter;

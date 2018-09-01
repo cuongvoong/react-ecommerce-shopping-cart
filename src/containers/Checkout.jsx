@@ -10,7 +10,7 @@ class Checkout extends Component {
 
     return (
       <div className="Checkout">
-        {cart.length === 0 ? (
+        {cart.items.length === 0 ? (
           <div className="cart-empty">Cart is empty</div>
         ) : (
           <div className="row">

@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { addToCart } from "../../store/actions/cartActions";
 
 class ProductItem extends Component {
   state = {
@@ -52,7 +50,7 @@ class ProductItem extends Component {
       }, 3000);
     });
 
-    this.props.addToCart(this.props.item);
+    this.props.onAddToCart(this.props.item);
   };
 
   buttonClass() {
@@ -60,11 +58,4 @@ class ProductItem extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  cart: state.cart.items
-});
-
-export default connect(
-  mapStateToProps,
-  { addToCart }
-)(ProductItem);
+export default ProductItem;
