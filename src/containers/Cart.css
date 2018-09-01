@@ -1,0 +1,28 @@
+.cart-empty {
+  text-align: center;
+}
+
+.CartItem {
+  width: 30em;
+}
+
+.Cart .checkoutImage {
+  width: 100px;
+}
+
+.Cart .CartItemsTable,
+.Cart .CartTotal,
+.Cart .checkout-btn {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+
+.Cart {
+  padding-top: 56px;
+  margin: auto;
+}
+
+.Cart .box-qty {
+  width: 50px;
+}

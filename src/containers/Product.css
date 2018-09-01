@@ -1,0 +1,22 @@
+.Product {
+  display: flex;
+  padding-top: 56px;
+}
+
+.Product .ProductItems {
+  width: 80%;
+}
+
+.Product .ProductItem {
+  width: 33%;
+  display: flex;
+}
+
+.addtocart {
+  text-align: center;
+}
+
+.Product .product-price {
+  text-align: center;
+  font-weight: bold;
+}

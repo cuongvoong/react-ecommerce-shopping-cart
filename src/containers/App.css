@@ -1,0 +1,9 @@
+#content {
+  /* display: flex; */
+  margin-top: 5px;
+}
+
+.Error,
+.Checkout {
+  padding-top: 56px;
+}

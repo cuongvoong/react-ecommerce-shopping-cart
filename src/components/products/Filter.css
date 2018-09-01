@@ -1,0 +1,5 @@
+.Filter {
+  transition: all 0.3s;
+  width: 20%;
+  min-height: 100vh;
+}
