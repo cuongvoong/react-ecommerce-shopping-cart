@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import BillingAddress from "../components/checkout/BillingAddress";
 import OrderSummary from "../components/checkout/OrderSummary";
 import { getTotalAmount } from "../store/reducers";
+import "./Checkout.css";
 
 class Checkout extends Component {
   render() {
@@ -10,20 +11,16 @@ class Checkout extends Component {
 
     return (
       <div className="Checkout">
-        {cart.items.length === 0 ? (
+        {cart.addedItemIds.length === 0 ? (
           <div className="cart-empty">Cart is empty</div>
         ) : (
-          <div className="row">
-            <div className="col-md-6">
-              <BillingAddress />
-            </div>
-            <div className="col-md-6">
-              <OrderSummary
-                totalItems={cart.totalItems}
-                totalAmount={totalAmount}
-              />
-            </div>
-          </div>
+          <React.Fragment>
+            <BillingAddress />
+            <OrderSummary
+              totalItems={cart.totalItems}
+              totalAmount={totalAmount}
+            />
+          </React.Fragment>
         )}
       </div>
     );

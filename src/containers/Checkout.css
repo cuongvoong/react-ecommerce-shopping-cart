@@ -1,0 +1,57 @@
+.Checkout {
+  display: flex;
+}
+
+.BillingAddress {
+  margin: 1em;
+  width: 50%;
+}
+.BillingAddress label {
+  min-width: 100px;
+  padding-right: 20px;
+}
+
+.form-group {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.form-group input,
+.form-group select {
+  padding: 8px 15px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.OrderSummary {
+  width: 300px;
+  border: 1px solid #ddd;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.OrderSummary .order-summary-table {
+  width: 100%;
+}
+
+.OrderSummary .order-summary-text-right {
+  text-align: right;
+}
+
+.OrderSummary .order-summary-place-order {
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 10px;
+  width: 100%;
+}
+
+.OrderSummary .order-summary-place-order:hover {
+  cursor: pointer;
+}
+
+.OrderSummary .order-summary-total {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #cf3b00;
+}

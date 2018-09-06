@@ -1,89 +1,76 @@
 import {
   ADD_TO_CART,
-  FETCH_CART_ITEMS,
-  UPDATE_ITEM_QUANTITY
+  UPDATE_ITEM_QUANTITY,
+  DELETE_ITEM
 } from "../actions/types";
 
-// const initialState = {
-//   addedItemIds: [],
-//   quantityById: {}
-// };
-
 const initialState = {
-  items: [],
+  addedItemIds: [],
+  quantityById: {},
   totalItems: 0
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      if (state.items.find(item => item.id === action.payload.id)) {
-        return {
-          ...state,
-          items: Object.assign(
-            [],
-            state.items.map(item => {
-              if (item.id === action.payload.id) {
-                item.quantity++;
-              }
-              return item;
-            })
-          ),
-          totalItems: (state.totalItems || 0) + 1
-        };
-      } else {
-        action.payload.quantity = 1;
-        return {
-          ...state,
-          items: [...state.items, action.payload],
-          totalItems: (state.totalItems || 0) + 1
-        };
-      }
-    // const { id } = action.payload;
-    // const addedItemIds = addItemId(state.addedItemIds, id);
-    // const quantityById = addQuantityById(state.quantityById, id);
-    // return {
-    //   ...state,
-    //   addedItemIds,
-    //   quantityById
-    // };
-    case UPDATE_ITEM_QUANTITY:
-      const { id, value } = action.payload;
-      let oldQuantity;
-
       return {
         ...state,
-        items: Object.assign(
-          [],
-          state.items.map(item => {
-            if (item.id === parseInt(id, 10)) {
-              oldQuantity = item.quantity;
-              item.quantity = value;
-            }
-            return item;
-          })
-        ),
-        totalItems: parseInt(value, 10) - oldQuantity + state.totalItems || 0
+        addedItemIds: addItemId(state.addedItemIds, action.payload.id),
+        quantityById: addQuantityById(state.quantityById, action.payload.id),
+        totalItems: (state.totalItems || 0) + 1
       };
-    case FETCH_CART_ITEMS:
-      return state;
+    case UPDATE_ITEM_QUANTITY:
+      return {
+        ...state,
+        quantityById: {
+          ...state.quantityById,
+          [action.payload.id]: parseInt(action.payload.value, 10)
+        },
+        totalItems: getTotalItems(
+          state,
+          action.payload.id,
+          action.payload.value
+        )
+      };
+    case DELETE_ITEM:
+      return {
+        ...state,
+        addedItemIds: state.addedItemIds.filter(
+          item => parseInt(action.payload, 10) !== item
+        ),
+        quantityById: Object.keys(state.quantityById)
+          .filter(key => key !== action.payload)
+          .reduce((obj, key) => {
+            return {
+              ...obj,
+              [key]: state.quantityById[key]
+            };
+          }, {}),
+        totalItems: state.totalItems - state.quantityById[action.payload]
+      };
     default:
       return state;
   }
 };
 
-// const addItemId = (state, id) => {
-//   if (state.indexOf(id) !== -1) {
-//     return state;
-//   }
+const addItemId = (state, id) => {
+  if (state.indexOf(id) !== -1) {
+    return state;
+  }
 
-//   return [...state, id];
-// };
+  return [...state, id];
+};
 
-// const addQuantityById = (state, id) => {
-//   console.log(state);
-//   return {
-//     ...state,
-//     [id]: (state[id] || 0) + 1
-//   };
-// };
+const addQuantityById = (state, id) => {
+  return {
+    ...state,
+    [id]: (state[id] || 0) + 1
+  };
+};
+
+const getTotalItems = (state, id, value) => {
+  const oldQuantity = state.quantityById[id];
+  const newQuantity = value;
+
+  return parseInt(newQuantity, 10) - oldQuantity + state.totalItems || 0;
+};

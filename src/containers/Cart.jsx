@@ -1,32 +1,31 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./Cart.css";
-import CartItemsTable from "../components/cart/CartItemsTable";
-import CartTotal from "../components/cart/CartTotal";
-import { Link } from "react-router-dom";
+import CartItems from "../components/cart/CartItems";
+import CartSummary from "../components/cart/CartSummary";
 import { getTotalAmount } from "../store/reducers";
-import { updateItemQuantity } from "../store/actions/cartActions";
+import { updateItemQuantity, deleteItem } from "../store/actions/cartActions";
 
 class Cart extends Component {
   render() {
-    const { cart, totalAmount } = this.props;
+    const { cart, products, totalAmount } = this.props;
 
     return (
       <div className="Cart">
-        {cart.length === 0 ? (
+        {cart.addedItemIds.length === 0 ? (
           <div className="cart-empty">Cart is empty</div>
         ) : (
           <React.Fragment>
-            <CartItemsTable
+            <CartItems
               onUpdateQuantity={this.handleUpdateQuantity}
-              cartItems={cart}
+              onDeleteItem={this.handleDeleteItem}
+              cart={cart}
+              products={products.items}
             />
-            <CartTotal total={parseFloat(totalAmount)} />
-            <div className="checkout-btn">
-              <Link className="btn btn-primary my-2 my-sm-0" to="/checkout">
-                Checkout
-              </Link>
-            </div>
+            <CartSummary
+              total={parseFloat(totalAmount)}
+              totalItems={cart.totalItems}
+            />
           </React.Fragment>
         )}
       </div>
@@ -40,14 +39,20 @@ class Cart extends Component {
     }
     this.props.updateItemQuantity(id, value);
   };
+
+  handleDeleteItem = id => {
+    console.log(id);
+    this.props.deleteItem(id);
+  };
 }
 
 const mapStateToProps = state => ({
-  cart: state.cart.items,
+  cart: state.cart,
+  products: state.products,
   totalAmount: getTotalAmount(state)
 });
 
 export default connect(
   mapStateToProps,
-  { updateItemQuantity }
+  { updateItemQuantity, deleteItem }
 )(Cart);

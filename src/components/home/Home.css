@@ -2,3 +2,7 @@
   text-align: center;
   padding-top: 56px;
 }
+
+.HomeContent a {
+  text-decoration: none;
+}

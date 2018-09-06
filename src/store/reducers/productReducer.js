@@ -5,7 +5,8 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  items: [],
+  items: {},
+  visibleIds: [],
   categories: []
 };
 
@@ -22,9 +23,18 @@ export default (state = initialState, action) => {
         items: action.payload
       };
     case FETCH_PRODUCTS:
+      const items = action.payload.reduce(
+        (obj, product) => ({
+          ...obj,
+          [product.id]: product
+        }),
+        {}
+      );
+
       return {
         ...state,
-        items: action.payload
+        items,
+        visibleIds: Array.from(action.payload, item => item.id)
       };
     default:
       return state;

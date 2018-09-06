@@ -25,11 +25,12 @@ class Product extends Component {
   }
 
   render() {
-    const items = this.props.items.map(item => {
+    const { visibleIds, items } = this.props;
+    const visibleItems = visibleIds.map(visibleId => {
       return (
         <ProductItem
-          key={item.id}
-          item={item}
+          key={items[visibleId].id}
+          item={items[visibleId]}
           onAddToCart={this.handleAddToCart}
         />
       );
@@ -37,12 +38,11 @@ class Product extends Component {
 
     return (
       <div className="Product">
-        {/* <Sidebar /> */}
         <Filter
           categories={this.props.categories}
           onUpdateFilters={this.handleUpdateFilters}
         />
-        <div className="ProductItems card-group">{items}</div>
+        <div className="ProductItems">{visibleItems}</div>
       </div>
     );
   }
@@ -62,6 +62,7 @@ class Product extends Component {
 
 const mapStateToProps = state => ({
   items: state.products.items,
+  visibleIds: state.products.visibleIds,
   filters: state.filters.items,
   categories: state.products.categories
 });

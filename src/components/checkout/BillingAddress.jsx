@@ -5,15 +5,6 @@ class BillingAddress extends Component {
     value: "Choose..."
   };
 
-  componentDidMount() {
-    const script = document.createElement("script");
-
-    script.src = "https://checkout.stripe.com/checkout.js";
-    script.async = true;
-
-    document.body.appendChild(script);
-  }
-
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
@@ -28,7 +19,7 @@ class BillingAddress extends Component {
               type="text"
               className="form-control"
               id="inputEmail4"
-              placeholder="Email"
+              placeholder="Name on card"
             />
           </div>
           <div className="form-group">
@@ -61,9 +52,6 @@ class BillingAddress extends Component {
               <input type="text" className="form-control" id="inputZip" />
             </div>
           </div>
-          <button type="submit" className="btn btn-primary">
-            Submit Order
-          </button>
         </form>
       </div>
     );

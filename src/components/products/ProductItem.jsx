@@ -19,16 +19,19 @@ class ProductItem extends Component {
   render() {
     const { item } = this.props;
     return (
-      <div className="ProductItem">
-        <div className="card">
-          <img className="card-img-top" src={item.image_url} alt="" />
-          <div className="card-body d-flex flex-column">
-            <h5 className="card-title">{item.name}</h5>
-            <p className="card-text">{item.description}</p>
-            <p className="card-text product-price">{"$" + item.price / 100}</p>
-            <div className="addtocart">
+      <div className="card">
+        <img className="card-img-top" src={item.image_url} alt="" />
+        <div className="card-body">
+          <h5 className="card-title">{item.name}</h5>
+          <p className="card-text">{item.description}</p>
+          <div className="footer">
+            <div>
+              <span className="product-price">{"$" + item.price / 100}</span>
+            </div>
+            <div className="addToCart">
               <button className={this.buttonClass()} onClick={this.handleClick}>
-                {!this.state.isAdded ? "ADD TO CART" : "✔ ADDED"}
+                {!this.state.isAdded ? <i className="fas fa-cart-plus" /> : ""}
+                {!this.state.isAdded ? " ADD TO CART" : "✔ ADDED"}
               </button>
             </div>
           </div>

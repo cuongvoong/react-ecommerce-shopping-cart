@@ -21,8 +21,138 @@
 .Cart {
   padding-top: 56px;
   margin: auto;
+  display: grid;
+  grid-template-columns: 7fr 2fr;
 }
 
 .Cart .box-qty {
-  width: 50px;
+  width: 50%;
+}
+
+.CartItems {
+  border: 1px solid #ccc;
+  margin: 0.1em;
+}
+
+.CartItems .cart-item {
+  display: grid;
+  padding: 0.5em 0.2em;
+  grid-template-columns: 1fr 5fr 1fr 1fr;
+}
+
+.CartItems .cart-item > div {
+  padding: 0 2px;
+}
+
+.CartItems .cart-image > img {
+  max-width: 150px;
+}
+
+.CartItems .cart-item-description {
+  padding: 0 0.5em;
+}
+
+.CartItems .cart-item-description > span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.CartItems .cart-item-title {
+  font-size: 1.1em;
+  color: blue;
+}
+
+.CartItems .cart-item-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.CartItems .cart-item-delete {
+  margin-top: auto;
+}
+
+.CartItems .cart-item-price {
+  font-weight: bold;
+  color: #cf3b00;
+}
+
+.CartItems .cart-item-quantity form {
+  display: flex;
+  flex-direction: column;
+}
+
+.CartItems .cart-item-quantity form input {
+  margin-bottom: 5px;
+}
+
+.CartItems .cart-item-quantity form button {
+  font-size: 0.7em;
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 3px;
+}
+
+.CartItems .cart-item-quantity form button:hover {
+  cursor: pointer;
+}
+
+.CartSummary {
+  border: 1px solid #ccc;
+  margin: 0.1em;
+  background: #eee;
+  min-width: 200px;
+}
+
+.CartSummary .order-summary {
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+}
+
+.CartSummary .order-summary > span {
+  display: block;
+}
+
+.CartSummary .order-summary-title {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.CartSummary .order-summary-price {
+  color: #cf3b00;
+  font-weight: bold;
+}
+
+.CartSummary .order-summary-checkout-button {
+  display: flex;
+  margin-top: 1em;
+}
+
+.CartSummary .order-summary-checkout-button > a {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 0.8em;
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.CartSummary .order-summary-checkout-button > a:active {
+  transform: translateY(1px);
+}
+
+.CartSummary .order-summary-checkout-button > button:hover {
+  cursor: pointer;
+}
+
+.CartSummary a {
+  text-decoration: none;
+}
+
+.tenPlus {
+  border-top: 1px solid #999;
 }

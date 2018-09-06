@@ -1,5 +1,59 @@
+@import url("//use.fontawesome.com/releases/v5.3.1/css/all.css");
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+.btn {
+  text-align: center;
+  line-height: 1.5;
+  padding: 0.375em 0.75em;
+  border-radius: 0.25em;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-info {
+  color: #212529;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-outline-success {
+  color: #28a745;
+  background-color: transparent;
+  border: 1px solid #28a745;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: #28a745;
+  border: 1px solid transparent;
+  transition: all 500ms ease;
+}
+
+.btn-outline-success:active {
+  background-color: darken(#28a745, 100%);
+}
+
+.badge-danger {
+  background-color: #dc3545;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  line-height: 1;
+  border-radius: 6px;
 }

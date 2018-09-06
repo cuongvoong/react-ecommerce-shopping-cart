@@ -19,8 +19,8 @@ class Filter extends Component {
     });
     return (
       <div className="Filter">
-        <div>Filters</div>
-        <div className="form-check">{filterItems}</div>
+        <div className="header">Filters</div>
+        <div className="filter-form">{filterItems}</div>
       </div>
     );
   }

@@ -1,5 +1,8 @@
 .Filter {
-  transition: all 0.3s;
-  width: 20%;
-  min-height: 100vh;
+  min-width: 200px;
+}
+
+.Filter .header {
+  font-weight: bold;
+  margin: 0.4em;
 }

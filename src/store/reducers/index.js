@@ -9,7 +9,17 @@ export default combineReducers({
   cart: cartReducer
 });
 
-export const getTotalAmount = state =>
-  state.cart.items
-    .reduce((total, it) => total + (it.quantity * it.price) / 100, 0)
+export const getTotalAmount = state => {
+  const { addedItemIds, quantityById } = state.cart;
+  const { items } = state.products;
+  if (addedItemIds.length === 0) {
+    return 0;
+  }
+  return addedItemIds
+    .reduce(
+      (total, productId) =>
+        total + (quantityById[productId] * items[productId].price) / 100,
+      0
+    )
     .toFixed(2);
+};
