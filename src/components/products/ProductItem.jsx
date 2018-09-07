@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class ProductItem extends Component {
   state = {
@@ -60,5 +61,16 @@ class ProductItem extends Component {
     return "btn " + (!this.state.isAdded ? "btn-primary" : "btn-info");
   }
 }
+
+ProductItem.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    descriptin: PropTypes.string,
+    price: PropTypes.number,
+    image_url: PropTypes.string
+  }).isRequired,
+  onAddToCart: PropTypes.func.isRequired
+};
 
 export default ProductItem;

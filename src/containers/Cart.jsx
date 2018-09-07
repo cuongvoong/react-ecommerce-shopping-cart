@@ -23,7 +23,10 @@ class Cart extends Component {
               cart={cart}
               products={products.items}
             />
-            <CartSummary total={totalAmount} totalItems={cart.totalItems} />
+            <CartSummary
+              totalAmount={totalAmount}
+              totalItems={cart.totalItems}
+            />
           </React.Fragment>
         )}
       </div>

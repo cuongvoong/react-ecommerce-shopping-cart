@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const FilterItem = props => {
   const handleChange = event => {
@@ -22,6 +23,11 @@ const FilterItem = props => {
       </label>
     </div>
   );
+};
+
+FilterItem.propTypes = {
+  category: PropTypes.object.isRequired,
+  onCheckboxChange: PropTypes.func.isRequired
 };
 
 export default FilterItem;

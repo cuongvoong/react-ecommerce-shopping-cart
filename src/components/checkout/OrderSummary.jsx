@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { formatPrice, calculateTax } from "../../priceUtils";
 
 const OrderSummary = props => {
@@ -30,6 +31,11 @@ const OrderSummary = props => {
       </table>
     </div>
   );
+};
+
+OrderSummary.propTypes = {
+  totalItems: PropTypes.number.isRequired,
+  totalAmount: PropTypes.number.isRequired
 };
 
 export default OrderSummary;

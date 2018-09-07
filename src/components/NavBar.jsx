@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 
@@ -50,5 +51,9 @@ class NavBar extends Component {
     );
   }
 }
+
+NavBar.propTypes = {
+  totalItems: PropTypes.number.isRequired
+};
 
 export default NavBar;

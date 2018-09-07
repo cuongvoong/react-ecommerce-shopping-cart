@@ -1,15 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { formatPrice } from "../../priceUtils";
 
-const CartTotal = props => {
+const CartSummary = props => {
   return (
     <div className="CartSummary">
       <div className="order-summary">
         <span className="order-summary-title">
           SubTotal ({props.totalItems} items):{" "}
           <span className="order-summary-price">
-            {formatPrice(props.total)}
+            {formatPrice(props.totalAmount)}
           </span>
         </span>
         <div className="order-summary-checkout-button">
@@ -22,4 +23,9 @@ const CartTotal = props => {
   );
 };
 
-export default CartTotal;
+CartSummary.propTypes = {
+  totalItems: PropTypes.number,
+  totalAmount: PropTypes.number
+};
+
+export default CartSummary;

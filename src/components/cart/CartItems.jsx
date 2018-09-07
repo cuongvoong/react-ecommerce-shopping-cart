@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import CartItem from "./CartItem";
 
 const CartItems = props => {
@@ -16,6 +17,17 @@ const CartItems = props => {
   });
 
   return <div className="CartItems">{items}</div>;
+};
+
+CartItems.propTypes = {
+  cart: PropTypes.shape({
+    addedItemIds: PropTypes.arrayOf(PropTypes.number).isRequired,
+    quantityById: PropTypes.objectOf(PropTypes.number).isRequired,
+    totalItems: PropTypes.number.isRequired
+  }),
+  products: PropTypes.objectOf(PropTypes.object).isRequired,
+  onUpdateQuantity: PropTypes.func.isRequired,
+  onDeleteItem: PropTypes.func.isRequired
 };
 
 export default CartItems;

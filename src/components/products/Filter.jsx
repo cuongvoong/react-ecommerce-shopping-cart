@@ -41,7 +41,8 @@ class Filter extends Component {
 }
 
 Filter.propTypes = {
-  filters: PropTypes.arrayOf(PropTypes.number)
+  filters: PropTypes.arrayOf(PropTypes.number),
+  onUpdateFilters: PropTypes.func.isRequired
 };
 
 export default Filter;

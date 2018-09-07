@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { formatPrice } from "../../priceUtils";
 
 class CartItem extends Component {
@@ -114,5 +115,17 @@ class CartItem extends Component {
     );
   }
 }
+
+CartItem.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    price: PropTypes.number,
+    image_url: PropTypes.string
+  }).isRequired,
+  quantity: PropTypes.number.isRequired,
+  onUpdateQuantity: PropTypes.func.isRequired,
+  onDeleteItem: PropTypes.func.isRequired
+};
 
 export default CartItem;
