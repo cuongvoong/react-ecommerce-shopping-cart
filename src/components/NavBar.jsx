@@ -15,9 +15,9 @@ class NavBar extends Component {
     return (
       <React.Fragment>
         <nav className="navbar-icon-top fixed-top">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand nav-link" to="/">
             CuongEATS
-          </a>
+          </Link>
 
           <ul className="navbar-nav">
             <li className="nav-item">

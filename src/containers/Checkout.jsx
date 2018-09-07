@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import BillingAddress from "../components/checkout/BillingAddress";
 import OrderSummary from "../components/checkout/OrderSummary";
@@ -26,6 +27,15 @@ class Checkout extends Component {
     );
   }
 }
+
+Checkout.propTypes = {
+  cart: PropTypes.shape({
+    addedItemIds: PropTypes.arrayOf(PropTypes.number).isRequired,
+    quantityById: PropTypes.objectOf(PropTypes.number).isRequired,
+    totalItems: PropTypes.number.isRequired
+  }),
+  totalAmount: PropTypes.number.isRequired
+};
 
 const mapStateToProps = state => ({
   cart: state.cart,

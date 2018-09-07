@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./Cart.css";
 import CartItems from "../components/cart/CartItems";
@@ -22,10 +23,7 @@ class Cart extends Component {
               cart={cart}
               products={products.items}
             />
-            <CartSummary
-              total={parseFloat(totalAmount)}
-              totalItems={cart.totalItems}
-            />
+            <CartSummary total={totalAmount} totalItems={cart.totalItems} />
           </React.Fragment>
         )}
       </div>
@@ -45,6 +43,20 @@ class Cart extends Component {
     this.props.deleteItem(id);
   };
 }
+
+Cart.propTypes = {
+  cart: PropTypes.shape({
+    addedItemIds: PropTypes.arrayOf(PropTypes.number).isRequired,
+    quantityById: PropTypes.objectOf(PropTypes.number).isRequired,
+    totalItems: PropTypes.number.isRequired
+  }),
+  products: PropTypes.shape({
+    items: PropTypes.objectOf(PropTypes.object).isRequired,
+    visibleIds: PropTypes.arrayOf(PropTypes.number).isRequired,
+    categories: PropTypes.arrayOf(PropTypes.object).isRequired
+  }),
+  totalAmount: PropTypes.number.isRequired
+};
 
 const mapStateToProps = state => ({
   cart: state.cart,

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./Filter.css";
 import FilterItem from "./FilterItem";
 
@@ -26,16 +27,21 @@ class Filter extends Component {
   }
 
   handleCheckboxChange = (value, checked) => {
-    if (checked && !this.selectedFilters.has(value)) {
-      this.selectedFilters.add(value);
+    const intValue = parseInt(value, 10);
+    if (checked && !this.selectedFilters.has(intValue)) {
+      this.selectedFilters.add(intValue);
     }
 
-    if (!checked && this.selectedFilters.has(value)) {
-      this.selectedFilters.delete(value);
+    if (!checked && this.selectedFilters.has(intValue)) {
+      this.selectedFilters.delete(intValue);
     }
 
     this.props.onUpdateFilters(Array.from(this.selectedFilters));
   };
 }
+
+Filter.propTypes = {
+  filters: PropTypes.arrayOf(PropTypes.number)
+};
 
 export default Filter;

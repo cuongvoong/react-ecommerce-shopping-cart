@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Provider } from "react-redux";
 import store from "../store";
 import "./App.css";
@@ -41,6 +42,14 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  cart: PropTypes.shape({
+    addedItemIds: PropTypes.array.isRequired,
+    quantityById: PropTypes.object.isRequired,
+    totalItems: PropTypes.number.isRequired
+  })
+};
 
 const mapStateToProps = state => ({
   cart: state.cart

@@ -15,11 +15,13 @@ export const getTotalAmount = state => {
   if (addedItemIds.length === 0) {
     return 0;
   }
-  return addedItemIds
-    .reduce(
-      (total, productId) =>
-        total + (quantityById[productId] * items[productId].price) / 100,
-      0
-    )
-    .toFixed(2);
+  return parseFloat(
+    addedItemIds
+      .reduce(
+        (total, productId) =>
+          total + (quantityById[productId] * items[productId].price) / 100,
+        0
+      )
+      .toFixed(2)
+  );
 };

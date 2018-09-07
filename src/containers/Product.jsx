@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ProductItem from "../components/products/ProductItem";
 import {
@@ -59,6 +60,21 @@ class Product extends Component {
     this.props.updateFilters(filters);
   };
 }
+
+Product.propTypes = {
+  cart: PropTypes.shape({
+    addedItemIds: PropTypes.arrayOf(PropTypes.number).isRequired,
+    quantityById: PropTypes.objectOf(PropTypes.number).isRequired,
+    totalItems: PropTypes.number.isRequired
+  }),
+  products: PropTypes.shape({
+    items: PropTypes.objectOf(PropTypes.object).isRequired,
+    visibleIds: PropTypes.arrayOf(PropTypes.number).isRequired,
+    categories: PropTypes.arrayOf(PropTypes.object).isRequired
+  }),
+  filters: PropTypes.arrayOf(PropTypes.number),
+  categories: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 const mapStateToProps = state => ({
   items: state.products.items,
