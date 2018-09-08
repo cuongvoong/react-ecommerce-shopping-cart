@@ -24,7 +24,7 @@ export default (state = initialState, action) => {
         ...state,
         quantityById: {
           ...state.quantityById,
-          [action.payload.id]: parseInt(action.payload.value, 10)
+          [action.payload.id]: action.payload.value
         },
         totalItems: getTotalItems(
           state,

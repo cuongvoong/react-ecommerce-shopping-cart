@@ -19,7 +19,7 @@ export const getTotalAmount = state => {
     addedItemIds
       .reduce(
         (total, productId) =>
-          total + (quantityById[productId] * items[productId].price) / 100,
+          total + quantityById[productId] * items[productId].price,
         0
       )
       .toFixed(2)

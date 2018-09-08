@@ -3,7 +3,7 @@
 }
 
 .CartItem {
-  width: 30em;
+  width: 30rem;
 }
 
 .Cart .checkoutImage {
@@ -31,12 +31,12 @@
 
 .CartItems {
   border: 1px solid #ccc;
-  margin: 0.1em;
+  margin: 0.1rem;
 }
 
 .CartItems .cart-item {
   display: grid;
-  padding: 0.5em 0.2em;
+  padding: 0.5em 0.2rem;
   grid-template-columns: 1fr 5fr 1fr 1fr;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .CartItems .cart-item-description {
-  padding: 0 0.5em;
+  padding: 0 0.5rem;
 }
 
 .CartItems .cart-item-description > span {
@@ -58,8 +58,8 @@
 }
 
 .CartItems .cart-item-title {
-  font-size: 1.1em;
-  color: blue;
+  font-size: 1.1rem;
+  color: #00f;
 }
 
 .CartItems .cart-item-description {
@@ -69,6 +69,15 @@
 
 .CartItems .cart-item-delete {
   margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.CartItems .cart-item-delete-text {
+  font-size: 0.8rem;
+}
+
+.CartItems .cart-item-delete-text:hover {
+  cursor: pointer;
 }
 
 .CartItems .cart-item-price {
@@ -86,7 +95,7 @@
 }
 
 .CartItems .cart-item-quantity form button {
-  font-size: 0.7em;
+  font-size: 0.7rem;
   background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
   border: 1px solid black;
   border-radius: 3px;
@@ -99,13 +108,13 @@
 
 .CartSummary {
   border: 1px solid #ccc;
-  margin: 0.1em;
+  margin: 0.1rem;
   background: #eee;
   min-width: 200px;
 }
 
 .CartSummary .order-summary {
-  margin: 1em;
+  margin: 1rem;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -117,7 +126,7 @@
 }
 
 .CartSummary .order-summary-title {
-  font-size: 1.1em;
+  font-size: 1.1rem;
   font-weight: bold;
 }
 
@@ -128,13 +137,13 @@
 
 .CartSummary .order-summary-checkout-button {
   display: flex;
-  margin-top: 1em;
+  margin-top: 1rem;
 }
 
 .CartSummary .order-summary-checkout-button > a {
   padding-top: 5px;
   padding-bottom: 5px;
-  font-size: 0.8em;
+  font-size: 0.8rem;
   background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
   border: 1px solid black;
   border-radius: 3px;

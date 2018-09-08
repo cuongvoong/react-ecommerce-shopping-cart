@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 const HomeContent = () => {
@@ -9,9 +10,9 @@ const HomeContent = () => {
         <p className="lead">
           To begin the ordering process, click the button below.
         </p>
-        <a href="/products" className="btn btn-success">
+        <Link to="/products" className="btn btn-success">
           Order Now
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 export const formatPrice = (price, currency = "USD") => {
   switch (currency) {
     default:
-      return "$" + price.toFixed(2);
+      return "$" + (price / 100).toFixed(2);
   }
 };
 

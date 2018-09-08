@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { formatPrice } from "../../priceUtils";
 
 class ProductItem extends Component {
   state = {
@@ -27,7 +28,7 @@ class ProductItem extends Component {
           <p className="card-text">{item.description}</p>
           <div className="footer">
             <div>
-              <span className="product-price">{"$" + item.price / 100}</span>
+              <span className="product-price">{formatPrice(item.price)}</span>
             </div>
             <div className="addToCart">
               <button className={this.buttonClass()} onClick={this.handleClick}>

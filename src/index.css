@@ -19,6 +19,12 @@ body {
   border-color: #007bff;
 }
 
+.btn-danger {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
 .btn-info {
   color: #212529;
   background-color: #ffc107;
