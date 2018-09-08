@@ -1,15 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { formatPrice, calculateTax } from "../../priceUtils";
+import { formatPrice } from "../../priceUtils";
 
 const OrderSummary = props => {
-  const subTotal = parseFloat(props.totalAmount);
-  const tax = calculateTax(subTotal);
-  const total = subTotal + tax;
+  const { subTotal, tax, total } = props;
 
   return (
     <div className="OrderSummary">
-      <button className="order-summary-place-order">Place your order</button>
       <h3>Order Summary</h3>
       <table className="order-summary-table">
         <tbody>
@@ -34,8 +31,9 @@ const OrderSummary = props => {
 };
 
 OrderSummary.propTypes = {
-  totalItems: PropTypes.number.isRequired,
-  totalAmount: PropTypes.number.isRequired
+  subTotal: PropTypes.number.isRequired,
+  tax: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired
 };
 
 export default OrderSummary;

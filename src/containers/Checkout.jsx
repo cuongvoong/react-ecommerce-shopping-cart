@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import BillingAddress from "../components/checkout/BillingAddress";
+import BillingDetails from "../components/checkout/BillingDetails";
 import OrderSummary from "../components/checkout/OrderSummary";
 import { getTotalAmount } from "../store/reducers";
+import { calculateTax } from "../../src/priceUtils";
 import "./Checkout.css";
 
 class Checkout extends Component {
   render() {
     const { cart, totalAmount } = this.props;
+    const subTotal = totalAmount;
+    const tax = calculateTax(subTotal);
+    const total = subTotal + tax;
 
     return (
       <div className="Checkout">
@@ -16,16 +20,46 @@ class Checkout extends Component {
           <div className="cart-empty">Cart is empty</div>
         ) : (
           <React.Fragment>
-            <BillingAddress />
             <OrderSummary
+              {...this.state}
               totalItems={cart.totalItems}
-              totalAmount={totalAmount}
+              subTotal={subTotal}
+              tax={tax}
+              total={total}
+            />
+            <BillingDetails
+              onFullName={this.handleFullName}
+              onCreditCard={this.handleCreditCard}
+              onExpMonth={this.handleExpMonth}
+              onExpYear={this.handleExpYear}
+              onZipCode={this.handleZipCode}
+              total={total}
             />
           </React.Fragment>
         )}
       </div>
     );
   }
+
+  handleFullName = fullName => {
+    this.setState({ fullName });
+  };
+
+  handleCreditCard = creditCard => {
+    this.setState({ creditCard });
+  };
+
+  handleExpMonth = expMonth => {
+    this.setState({ expMonth });
+  };
+
+  handleExpYear = expYear => {
+    this.setState({ expYear });
+  };
+
+  handleZipCode = zipCode => {
+    this.setState({ zipCode });
+  };
 }
 
 Checkout.propTypes = {

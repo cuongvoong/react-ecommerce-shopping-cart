@@ -7,7 +7,7 @@ class CartItem extends Component {
     super(props);
 
     this.state = {
-      value: props.quantity
+      value: props.quantity.toString()
     };
   }
 
@@ -25,25 +25,24 @@ class CartItem extends Component {
 
   handleSelectChange = event => {
     const { id, value } = event.target;
-    if (value < 10) {
+    const intValue = parseInt(value, 10);
+    if (intValue < 10) {
       this.setState({ value });
-      this.props.onUpdateQuantity(id, value);
+      this.props.onUpdateQuantity(id, intValue);
     } else {
       this.setState({ currentForm: "input" });
     }
   };
 
   handleInputChange = event => {
-    const value = parseInt(event.target.value, 10);
+    const value = event.target.value;
     this.setState({ value });
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onUpdateQuantity(
-      event.target.quantity.id,
-      event.target.quantity.value
-    );
+    const intValue = parseInt(event.target.quantity.value, 10);
+    this.props.onUpdateQuantity(event.target.quantity.id, intValue);
 
     this.updateFormInput(event.target.quantity.value);
   };
@@ -87,7 +86,11 @@ class CartItem extends Component {
           value={this.state.value}
           onChange={this.handleInputChange.bind(this)}
         />
-        {quantity !== this.state.value ? <button>Update</button> : ""}
+        {quantity.toString() !== this.state.value ? (
+          <button>Update</button>
+        ) : (
+          ""
+        )}
       </React.Fragment>
     );
 
@@ -102,12 +105,16 @@ class CartItem extends Component {
         <div className="cart-item-description">
           <span className="cart-item-title">{item.name}</span>
           <div className="cart-item-delete">
-            <button id={item.id} onClick={this.handleDeleteItem.bind(this)}>
-              Delete
+            <button
+              className="cart-item-delete-text btn btn-danger"
+              id={item.id}
+              onClick={this.handleDeleteItem.bind(this)}
+            >
+              <i className="fas fa-trash-alt" /> Delete
             </button>
           </div>
         </div>
-        <div className="cart-item-price">{formatPrice(item.price / 100)}</div>
+        <div className="cart-item-price">{formatPrice(item.price)}</div>
         <div className="cart-item-quantity">
           <form onSubmit={this.handleSubmit.bind(this)}>{currentForm}</form>
         </div>
