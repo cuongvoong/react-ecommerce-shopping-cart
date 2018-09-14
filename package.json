@@ -8,8 +8,6 @@
     "@fortawesome/react-fontawesome": "^0.1.2",
     "ajv": "^6.5.3",
     "axios": "^0.18.0",
-    "gh-pages": "^1.2.0",
-    "package": "^1.0.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
