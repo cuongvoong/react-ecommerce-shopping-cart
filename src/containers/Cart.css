@@ -169,4 +169,8 @@
   .CartItems .cart-item-title {
     font-size: 1.1rem;
   }
+
+  .CartItems .cart-image > img {
+    width: 150px;
+  }
 }
