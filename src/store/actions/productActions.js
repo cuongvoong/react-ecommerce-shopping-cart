@@ -4,7 +4,7 @@ import {
   FETCH_PRODUCTS
 } from "./types";
 
-const APISERVER = "http://34.216.251.100:5000";
+const APISERVER = "https://cuongeats-backend.ddns.net";
 
 export const fetchCategories = () => dispatch => {
   const url = `${APISERVER}/category`;
