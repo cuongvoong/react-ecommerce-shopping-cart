@@ -63,13 +63,20 @@
   cursor: pointer;
 }
 
-@media (min-width: 872px) {
+@media (min-width: 600px) {
   .Product .ProductItems {
     grid-gap: 5px;
+    grid-template-columns: 1fr;
+  }
+
+  .Product .card .card-text {
+    display: block;
+    margin-top: 0.3rem;
   }
 
   .Product .card {
-    width: 20rem;
+    width: 100%;
+    max-width: 20rem;
   }
 
   .Product .card .card-img-top {
@@ -83,12 +90,9 @@
   .Product .card .card-title {
     font-size: 1.1rem;
   }
+}
 
-  .Product .card .card-text {
-    display: block;
-    margin-top: 0.3rem;
-  }
-
+@media (min-width: 872px) {
   .Product .ProductItems {
     grid-template-columns: 1fr 1fr;
   }
