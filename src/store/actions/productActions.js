@@ -4,8 +4,10 @@ import {
   FETCH_PRODUCTS
 } from "./types";
 
+const APISERVER = "http://34.216.251.100:5000";
+
 export const fetchCategories = () => dispatch => {
-  const url = "http://localhost:4200/category";
+  const url = `${APISERVER}/category`;
   fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -20,7 +22,7 @@ export const fetchCategories = () => dispatch => {
 };
 
 export const fetchProductsByCategoryId = id => dispatch => {
-  const url = `http://localhost:4200/category/${id}`;
+  const url = `${APISERVER}/category/${id}`;
   fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -35,7 +37,7 @@ export const fetchProductsByCategoryId = id => dispatch => {
 };
 
 export const fetchProducts = filters => dispatch => {
-  const url = `http://localhost:4200/products/`;
+  const url = `${APISERVER}/products/`;
   fetch(url)
     .then(response => response.json())
     .then(data => {

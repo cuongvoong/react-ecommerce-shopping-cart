@@ -1,8 +1,27 @@
-.HomeContent {
+.Home {
   text-align: center;
   padding-top: 56px;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6)
+    ),
+    url("https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg");
 }
 
-.HomeContent a {
+.Home .jumbotron {
+  margin: 1rem;
+}
+
+.Home a {
   text-decoration: none;
+}
+
+.Home a:hover {
+  background-color: #4ac250;
+}
+
+.Home .order-button {
+  margin: 1rem;
+  box-sizing: border-box;
 }

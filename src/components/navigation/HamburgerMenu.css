@@ -1,0 +1,16 @@
+.HamburgerMenu {
+  min-height: 30px;
+  min-width: 30px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.HamburgerMenu-line {
+  background-color: #fff;
+  width: 100%;
+  height: 2px;
+}

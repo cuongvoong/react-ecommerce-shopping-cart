@@ -1,8 +1,16 @@
 .Filter {
-  min-width: 200px;
+  display: none;
 }
 
 .Filter .header {
   font-weight: bold;
-  margin: 0.4em;
+  margin: 0.4rem;
+}
+
+@media (min-width: 460px) {
+  .Filter {
+    display: block;
+    min-width: 200px;
+    margin: 0.5rem;
+  }
 }

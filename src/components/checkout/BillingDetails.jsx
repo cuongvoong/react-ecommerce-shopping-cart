@@ -14,7 +14,7 @@ class BillingDetails extends Component {
     validationError: ""
   };
   handleSubmit = event => {
-    const url = "http://localhost:4200/charge";
+    const url = "http://34.216.251.100:5000/charge";
     const { fullName } = event.target;
     event.preventDefault();
     if (this.props.stripe) {
@@ -28,6 +28,7 @@ class BillingDetails extends Component {
             method: "post",
             url: url,
             data: {
+              name: fullName.value,
               source: payload.token.id,
               amount: this.props.total
             }
@@ -111,7 +112,11 @@ class BillingDetails extends Component {
           <div className="validation-errors">
             {this.state.validationError || ""}
           </div>
-          <button className="billing-details-place-order">Place Order</button>
+          <div className="billing-details-place-order">
+            <button className="billing-details-place-order-btn">
+              Place Order
+            </button>
+          </div>
         </form>
       </div>
     );

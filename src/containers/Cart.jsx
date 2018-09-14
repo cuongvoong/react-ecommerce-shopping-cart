@@ -12,11 +12,11 @@ class Cart extends Component {
     const { cart, products, totalAmount } = this.props;
 
     return (
-      <div className="Cart">
+      <React.Fragment>
         {cart.addedItemIds.length === 0 ? (
           <div className="cart-empty">Cart is empty</div>
         ) : (
-          <React.Fragment>
+          <div className="Cart">
             <CartItems
               onUpdateQuantity={this.handleUpdateQuantity}
               onDeleteItem={this.handleDeleteItem}
@@ -27,9 +27,9 @@ class Cart extends Component {
               totalAmount={totalAmount}
               totalItems={cart.totalItems}
             />
-          </React.Fragment>
+          </div>
         )}
-      </div>
+      </React.Fragment>
     );
   }
 

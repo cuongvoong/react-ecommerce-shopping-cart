@@ -15,11 +15,11 @@ class Checkout extends Component {
     const total = subTotal + tax;
 
     return (
-      <div className="Checkout">
+      <React.Fragment>
         {cart.addedItemIds.length === 0 ? (
           <div className="cart-empty">Cart is empty</div>
         ) : (
-          <React.Fragment>
+          <div className="Checkout">
             <OrderSummary
               {...this.state}
               totalItems={cart.totalItems}
@@ -35,9 +35,9 @@ class Checkout extends Component {
               onZipCode={this.handleZipCode}
               total={total}
             />
-          </React.Fragment>
+          </div>
         )}
-      </div>
+      </React.Fragment>
     );
   }
 

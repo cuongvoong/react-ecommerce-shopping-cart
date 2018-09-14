@@ -11,3 +11,6 @@ export const ADD_TO_CART = "ADD_TO_CART";
 export const FETCH_CART_ITEMS = "FETCH_CART_ITEMS";
 export const UPDATE_ITEM_QUANTITY = "UPDATE_ITEM_QUANTITY";
 export const DELETE_ITEM = "DELETE_ITEM";
+
+//Navbar actions
+export const TOGGLE_SIDE_DRAWER = "TOGGLE_SIDE_DRAWER";

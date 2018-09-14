@@ -22,7 +22,9 @@ class ProductItem extends Component {
     const { item } = this.props;
     return (
       <div className="card">
-        <img className="card-img-top" src={item.image_url} alt="" />
+        <div className="card-img-top">
+          <img src={item.image_url} alt="" />
+        </div>
         <div className="card-body">
           <h5 className="card-title">{item.name}</h5>
           <p className="card-text">{item.description}</p>
@@ -33,7 +35,7 @@ class ProductItem extends Component {
             <div className="addToCart">
               <button className={this.buttonClass()} onClick={this.handleClick}>
                 {!this.state.isAdded ? <i className="fas fa-cart-plus" /> : ""}
-                {!this.state.isAdded ? " ADD TO CART" : "✔ ADDED"}
+                {!this.state.isAdded ? " ADD" : "✔ ADDED"}
               </button>
             </div>
           </div>

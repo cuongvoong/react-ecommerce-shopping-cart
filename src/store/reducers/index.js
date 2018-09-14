@@ -2,11 +2,13 @@ import { combineReducers } from "redux";
 import productReducer from "./productReducer";
 import filterReducer from "./filterReducer";
 import cartReducer from "./cartReducer";
+import headerReducer from "./headerReducer";
 
 export default combineReducers({
   products: productReducer,
   filters: filterReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  header: headerReducer
 });
 
 export const getTotalAmount = state => {

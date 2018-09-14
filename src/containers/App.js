@@ -4,10 +4,10 @@ import { Provider } from "react-redux";
 import store from "../store";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "../components/Header";
+import Header from "./Header";
 import Home from "../components/home/Home";
 import Product from "./Product";
-import Error from "../components/Error";
+import Error from "../components/error/Error";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
 import { connect } from "react-redux";
@@ -20,7 +20,10 @@ class App extends Component {
         <StripeProvider apiKey="pk_test_FG2AIlJbHuPKn7ouwmIb50Rb">
           <Router>
             <div className="App">
-              <Header totalItems={this.props.cart.totalItems} />
+              <Header
+                totalItems={this.props.cart.totalItems}
+                isSideDrawerOpen={true}
+              />
               <div id="content" className="container-fluid">
                 <Switch>
                   <Route exact path="/" component={Home} />
